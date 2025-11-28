@@ -1,9 +1,8 @@
 function App() {
-
   return (
     <>
-      <button>Peliculas mas populares</button>
-      <button>Peliculas mejor valoradas</button>
+      <button onClick={showPopularMovies}>Peliculas mas populares</button>
+      <button onClick={showRatedMovies}>Peliculas mejor valoradas</button>
     </>
   )
 }
