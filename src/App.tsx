@@ -1,16 +1,9 @@
-import { useEffect } from "react"
-import { getPopularMovies, getRatedMovies } from "./services/movieService"
-
 function App() {
-
-  useEffect(()=>{
-    getPopularMovies()
-    getRatedMovies()
-  },[])
 
   return (
     <>
-      
+      <button>Peliculas mas populares</button>
+      <button>Peliculas mejor valoradas</button>
     </>
   )
 }

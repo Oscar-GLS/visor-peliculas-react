@@ -20,10 +20,10 @@ export const getPopularMovies = async () => {
     try {
         const response = await fetch(url,options);
         const data = await response.json();
-        console.log(data);
-        
+        return data;
     } catch (error) {
-        
+        console.error("Sucedio un error en getPopularMovies"+error);
+        throw error;
     }
 }
 
@@ -32,9 +32,9 @@ export const getRatedMovies = async () => {
     try {
         const response = await fetch(url,options);
         const data = await response.json();
-        console.log(data);
-        
+        return data;
     } catch (error) {
-        
+        console.error("Sucedio un error en getRatedMovies"+error);
+        throw error;
     }
 }
