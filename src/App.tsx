@@ -1,9 +1,9 @@
+import { HomePage } from "./pages/HomePage"
+
+
 function App() {
   return (
-    <>
-      <button onClick={showPopularMovies}>Peliculas mas populares</button>
-      <button onClick={showRatedMovies}>Peliculas mejor valoradas</button>
-    </>
+    <HomePage></HomePage>
   )
 }
 

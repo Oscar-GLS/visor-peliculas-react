@@ -1,5 +1,7 @@
 import { usePopularMovies } from "../hooks/useMovieApi";
 
+const BASE_URL_IMAGEN_POSTER_TMDB = "https://image.tmdb.org/t/p/w300";
+
 export const HomePage = () => {
     const [movies, loading, error] = usePopularMovies();
     
@@ -19,8 +21,16 @@ export const HomePage = () => {
 
     return (
     <>
-        <button onClick={showPopularMovies}>Peliculas mas populares</button>
-        <button onClick={showRatedMovies}>Peliculas mejor valoradas</button>
+        <ul>
+            {
+                movies && movies.results.map((mov,i)=>(
+                    <li key={i}>
+                        <span>{mov.title}</span>
+                        <img src={BASE_URL_IMAGEN_POSTER_TMDB+mov.poster_path} alt="" />
+                    </li>
+                ))
+            }
+        </ul>
     </>
     )
 }

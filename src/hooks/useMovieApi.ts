@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react"
 import { getPopularMovies } from "../services/movieService";
+import type { Root } from "../interfaces"
 
-export const usePopularMovies = () => {
-    const [movies, setMovies] = useState();
+type MovieHookResult = [
+    Root | null,
+    boolean,
+    Error | null
+]
+
+export const usePopularMovies = (): MovieHookResult => {
+    const [movies, setMovies] = useState<Root | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
-    const [error, setError] = useState<Error | null>();
+    const [error, setError] = useState<Error | null>(null);
 
     useEffect(()=>{
         setLoading(true);

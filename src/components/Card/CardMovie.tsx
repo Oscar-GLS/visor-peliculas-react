@@ -1,7 +1,7 @@
 import type { Root } from "../../interfaces"
 
 interface Prop {
-    movie: Root
+    movie: Root | null
 }
 
 export const CardMovie = ({movie}:Prop) => {
