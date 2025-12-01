@@ -1,9 +1,17 @@
+import { useEffect, useState } from "react";
 import { CardMovie } from "../components/Card/CardMovie";
-import { usePopularMovies } from "../hooks/useMovieApi";
+import { FiltroMovies } from "../components/ui/FiltroMovies";
+import { useMoviesByTitle, usePopularMovies } from "../hooks/useMovieApi";
 
 export const HomePage = () => {
     const [movies, loading, error] = usePopularMovies();
+    const [filtro, setFiltro] = useState<string>("");
+    const [moviesByTitle] = useMoviesByTitle(filtro);
     
+    useEffect(()=>{
+        console.log(moviesToShow);
+    },[filtro])
+
     if(loading) {
     return <h3>Cargando datos...</h3>
     }
@@ -12,9 +20,18 @@ export const HomePage = () => {
     return <h3>Ups, ha ocurrido un error</h3>
     }
 
+    const actualizarPalabraFiltrada = (word:string)=>{
+        setFiltro(word);
+    }
+
+    const moviesToShow = filtro.trim() !== "" ? moviesByTitle : movies; 
+
+    
+
     return (
     <>
-        <CardMovie movies={movies}></CardMovie>
+        <FiltroMovies actualizarPalabraFiltrada={(value)=>actualizarPalabraFiltrada(value)}></FiltroMovies>
+        <CardMovie movies={moviesToShow}></CardMovie>
     </>
     )
 }
