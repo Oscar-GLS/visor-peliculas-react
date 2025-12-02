@@ -1,3 +1,3 @@
 export * from "./HomePage"
-export * from "./MovieDetailPage"
+export * from "./MovieDetailsPage"
 export * from "./FavoritesPage"

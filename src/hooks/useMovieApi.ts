@@ -1,15 +1,21 @@
 import { useEffect, useState } from "react"
-import { getMoviesByTitle, getPopularMovies } from "../services/movieService";
-import type { Root } from "../interfaces"
+import { getDetailsMovieByID, getMoviesByTitle, getPopularMovies } from "../services/movieService";
+import type { PopularMovies, DetailsMovie } from "../interfaces"
 
-type MovieHookResult = [
-    Root | null,
+type MoviesHookResult = [
+    PopularMovies | null,
     boolean,
     Error | null
 ]
 
-export const usePopularMovies = (): MovieHookResult => {
-    const [movies, setMovies] = useState<Root | null>(null);
+type DetailsMovieHook = [
+    DetailsMovie | null,
+    boolean,
+    Error | null
+]
+
+export const usePopularMovies = (): MoviesHookResult => {
+    const [movies, setMovies] = useState<PopularMovies | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<Error | null>(null);
 
@@ -32,8 +38,8 @@ export const usePopularMovies = (): MovieHookResult => {
     return [movies, loading, error];
 }
 
-export const useMoviesByTitle = (title:string): MovieHookResult => {
-    const [movies, setMovies] = useState<Root | null>(null);
+export const useMoviesByTitle = (title:string): MoviesHookResult => {
+    const [movies, setMovies] = useState<PopularMovies | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<Error | null>(null);
 
@@ -54,4 +60,28 @@ export const useMoviesByTitle = (title:string): MovieHookResult => {
         fetchMovies()
     },[title])
     return [movies, loading, error];
+}
+
+export const useDetailsMovieByID = (id:number): DetailsMovieHook => {
+    const [movie, setMovie] = useState<DetailsMovie | null>(null);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<Error | null>(null);
+
+    useEffect(()=>{
+        setLoading(true);
+        const fetchMovies = async () => {
+            try {
+                const data = await getDetailsMovieByID(id);
+                setMovie(data);
+            } catch (error) {
+                console.error("Sucedio un error en fetchMovies"+error)
+                setError(error as Error);
+                setLoading(false);
+            } finally {
+                setLoading(false);
+            }
+        }
+        fetchMovies()
+    },[id])
+    return [movie, loading, error];
 }

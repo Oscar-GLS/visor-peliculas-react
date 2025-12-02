@@ -1,4 +1,4 @@
-export interface Root {
+export interface PopularMovies {
     page: number
     results: Result[]
     total_pages: number
