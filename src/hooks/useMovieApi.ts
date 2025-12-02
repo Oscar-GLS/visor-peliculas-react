@@ -52,6 +52,6 @@ export const useMoviesByTitle = (title:string): MovieHookResult => {
             }
         }
         fetchMovies()
-    },[])
+    },[title])
     return [movies, loading, error];
 }
