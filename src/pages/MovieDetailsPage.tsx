@@ -5,7 +5,7 @@ export const MovieDetailPage = () => {
     let {id} = useParams();
     const movieID = Number(id);
 
-    const [movie, loading, error] = useDetailsMovieByID(movieID);
+    const {data: movie, loading, error} = useDetailsMovieByID(movieID);
 
     if(loading) {
         return <h3>Cargando datos...</h3>

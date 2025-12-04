@@ -4,9 +4,9 @@ import { FiltroMovies } from "../components/ui/FiltroMovies";
 import { useMoviesByTitle, usePopularMovies } from "../hooks/useMovieApi";
 
 export const HomePage = () => {
-    const [movies, loading, error] = usePopularMovies();
+    const {data: movies, loading, error} = usePopularMovies();
     const [filtro, setFiltro] = useState<string>("");
-    const [moviesByTitle] = useMoviesByTitle(filtro);
+    const {data: moviesByTitle} = useMoviesByTitle(filtro);
     
     useEffect(()=>{
         console.log(moviesToShow);
