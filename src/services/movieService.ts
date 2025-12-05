@@ -19,6 +19,7 @@ export const getPopularMovies = async () => {
     const [url, options] = getPreFetchData({remainingUrl: "movie/popular?language=en-US&page=1", method: "GET"});
     try {
         const response = await fetch(url,options);
+        if(!response.ok) throw new Error(`Error en la petición: ${response.status} ${response.statusText}`);
         const data = await response.json();
         return data;
     } catch (error) {
@@ -31,6 +32,7 @@ export const getMoviesByTitle = async (title:string) => {
     const [url, options] = getPreFetchData({remainingUrl: `search/movie?query=${title}&include_adult=false&language=en-US&page=1`, method: "GET"});
     try {
         const response = await fetch(url,options);
+        if(!response.ok) throw new Error(`Error en la petición: ${response.status} ${response.statusText}`);
         const data = await response.json();
         return data;
     } catch (error) {
@@ -43,22 +45,11 @@ export const getDetailsMovieByID = async (id:number) => {
     const [url, options] = getPreFetchData({remainingUrl: `movie/${id}?language=en-US`, method: "GET"});
     try {
         const response = await fetch(url,options);
+        if(!response.ok) throw new Error(`Error en la petición: ${response.status} ${response.statusText}`);
         const data = await response.json();
         return data;
     } catch (error) {
         console.error("Sucedio un error en getDetailsMovieByID"+error);
-        throw error;
-    }
-}
-
-export const getRatedMovies = async () => {
-    const [url, options] = getPreFetchData({remainingUrl: "movie/top_rated", method: "GET"});
-    try {
-        const response = await fetch(url,options);
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error("Sucedio un error en getRatedMovies"+error);
         throw error;
     }
 }
