@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    background-color: #0D0D0D;
+    font-family: "Roboto";
+}
+
+.bar-navigation {
+    position: sticky;
+    top: 0;
+    display: flex;
+    background-color: #00000095;
+    backdrop-filter: blur(2px);
+    width: 100dvw;
+    height: 4rem;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    .bn-inicio, .bn-favoritos {
+        border-radius: .7rem;
+        text-decoration: none;
+        background-color: #ddd;
+        padding: .5rem 1rem;
+        color: #111;
+        outline: none;
+    }
+}
