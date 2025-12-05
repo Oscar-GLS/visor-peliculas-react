@@ -13,8 +13,8 @@ export const FiltroMovies = ({actualizarPalabraFiltrada}:Props)=>{
 
     return (
         <div className="filtro-movies">
-            <input type="text" value={value} onChange={actualizarValorInput} />
-            <button onClick={()=>actualizarPalabraFiltrada(value)}>Filtrar</button>
+            <input className="filtro-input" type="text" value={value} onChange={actualizarValorInput} />
+            <button className="filtro-button" onClick={()=>actualizarPalabraFiltrada(value)}>Filtrar</button>
         </div>
     )
 }
