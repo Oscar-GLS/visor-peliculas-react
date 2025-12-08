@@ -1,2 +1,2 @@
 export * from "./IPopularMovies";
-export * from "./IDetailsMovie";
+export * from "./IMovieDetails";

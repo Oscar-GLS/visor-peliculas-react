@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react"
-import { getDetailsMovieByID, getMoviesByTitle, getPopularMovies } from "../services/movieService";
-import type { PopularMovies, DetailsMovie } from "../interfaces"
+import { getMovieDetailsByID, getMoviesByTitle, getPopularMovies } from "../services/movieService";
+import type { PopularMovies, MovieDetails } from "../interfaces"
 
 interface AsyncReturn<T> {
     data: T | null;
@@ -46,9 +46,9 @@ export const useMoviesByTitle = (title: string): AsyncReturn<PopularMovies> => {
     return { data, loading, error };
 }
 
-export const useDetailsMovieByID = (id: number): AsyncReturn<DetailsMovie> => {
-    const fetchFn = useCallback(() => getDetailsMovieByID(id), [id]);
-    const { data, loading, error } = useHookGeneric<DetailsMovie>({ asyncFunction: fetchFn });
+export const useMovieDetailsByID = (id: number): AsyncReturn<MovieDetails> => {
+    const fetchFn = useCallback(() => getMovieDetailsByID(id), [id]);
+    const { data, loading, error } = useHookGeneric<MovieDetails>({ asyncFunction: fetchFn });
     return { data, loading, error };
 }
 
@@ -100,8 +100,8 @@ export const useDetailsMovieByID = (id: number): AsyncReturn<DetailsMovie> => {
 //     return [movies, loading, error];
 // }
 
-// export const useDetailsMovieByID = (id:number): DetailsMovieHook => {
-//     const [movie, setMovie] = useState<DetailsMovie | null>(null);
+// export const useMovieDetailsByID = (id:number): MovieDetailsHook => {
+//     const [movie, setMovie] = useState<MovieDetails | null>(null);
 //     const [loading, setLoading] = useState<boolean>(false);
 //     const [error, setError] = useState<Error | null>(null);
 
@@ -109,7 +109,7 @@ export const useDetailsMovieByID = (id: number): AsyncReturn<DetailsMovie> => {
 //         setLoading(true);
 //         const fetchMovies = async () => {
 //             try {
-//                 const data = await getDetailsMovieByID(id);
+//                 const data = await getMovieDetailsByID(id);
 //                 setMovie(data);
 //             } catch (error) {
 //                 console.error("Sucedio un error en fetchMovies"+error)

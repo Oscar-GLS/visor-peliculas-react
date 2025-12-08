@@ -13,7 +13,7 @@ export const CardMovie = React.memo(({movies}:Prop) => {
                 movies && movies.results.map((mov)=>(
                     <Link to={`/pelicula/${mov.id}`} key={mov.id} className="movie">
                         <img className="movie-poster" src={import.meta.env.VITE_BASE_URL_IMAGEN_POSTER_TMDB+mov.poster_path} alt="Poster de la pelicula" />
-                        <span className="movie-title">{mov.original_title}</span>
+                        <span className="movie-title">{mov.title}</span>
                     </Link>
                 ))
             }

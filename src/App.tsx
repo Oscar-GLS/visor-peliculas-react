@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom"
 import { HomePage, MovieDetailPage, FavoritesPage } from "./pages"
-import "./assets/styles";
 import { BarNav } from "./components/Header/BarNav";
 import { useState } from "react";
 

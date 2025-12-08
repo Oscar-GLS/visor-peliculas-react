@@ -1,16 +1,16 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
-import type { DetailsMovie } from "../interfaces";
+import type { MovieDetails } from "../interfaces";
 
 interface FavoritesContextProps {
-    favorites: DetailsMovie[];
-    addFavorite: (movie: DetailsMovie) => void;
+    favorites: MovieDetails[];
+    addFavorite: (movie: MovieDetails) => void;
     removeFavorite: (movieID: number) => void;
     isFavorite: (movieID: number) => boolean;
 }
 
 const FavoritesContext = createContext<FavoritesContextProps>({
     favorites: [],
-    addFavorite: (_movie: DetailsMovie) => {},
+    addFavorite: (_movie: MovieDetails) => {},
     removeFavorite: (_movieID: number) => {},
     isFavorite: (_movieID: number) => false,
 });
@@ -22,9 +22,9 @@ interface Props {
 }
 
 export const FavoritesProvider = ({children}:Props) => {
-    const [favorites, setFavorites] = useState<DetailsMovie[]>([]);
+    const [favorites, setFavorites] = useState<MovieDetails[]>([]);
 
-    const addFavorite = (movie: DetailsMovie) => {
+    const addFavorite = (movie: MovieDetails) => {
         setFavorites((prevFavorites) => [...prevFavorites, movie]);
     }
 

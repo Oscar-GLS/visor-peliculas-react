@@ -41,7 +41,7 @@ export const getMoviesByTitle = async (title:string) => {
     }
 }
 
-export const getDetailsMovieByID = async (id:number) => {
+export const getMovieDetailsByID = async (id:number) => {
     const [url, options] = getPreFetchData({remainingUrl: `movie/${id}?language=en-US`, method: "GET"});
     try {
         const response = await fetch(url,options);
@@ -49,7 +49,7 @@ export const getDetailsMovieByID = async (id:number) => {
         const data = await response.json();
         return data;
     } catch (error) {
-        console.error("Sucedio un error en getDetailsMovieByID"+error);
+        console.error("Sucedio un error en getMovieDetailsByID"+error);
         throw error;
     }
 }
