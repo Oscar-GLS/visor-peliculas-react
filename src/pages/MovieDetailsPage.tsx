@@ -20,20 +20,23 @@ export const MovieDetailPage = () => {
     return (
         <div className="movie-details-container">
             <div className="md-image-container">
-                <img src={import.meta.env.VITE_BASE_URL_IMAGEN_POSTER_TMDB+movie?.poster_path} alt="" />
+                <img className="md-image" src={import.meta.env.VITE_BASE_URL_IMAGEN_POSTER_TMDB+movie?.poster_path} alt="" />
             </div>
-            <div className="md-informacion">
-                <li>ID: {movie?.id}</li>
-                <li>Titulo: {movie?.title}</li>
-                <li>Reseña: {movie?.overview}</li>
-                <li>Valoraciones: {movie?.vote_average}</li>
-                <Link to="/">Volver</Link>
-                {
-                    isFavorite(movieID) ?
-                    <button onClick={()=> movie && removeFavorite(movieID)}>Quitar de favoritos</button>
-                    :
-                    <button onClick={()=> movie && addFavorite(movie)}>Agregar como favorito</button>
-                }
+            <div className="md-informacion-container">
+                <span>ID: {movie?.id}</span>
+                <span>Titulo: {movie?.title}</span>
+                <span>Reseña: {movie?.overview}</span>
+                <span>Valoraciones: {movie?.vote_average}</span>
+                <div className="md-buttons-container">
+                    <Link className="md-btns-volver" to="/">Volver</Link>
+                    {
+                        isFavorite(movieID) ?
+                        <button className="md-btns-quitar-fav" onClick={()=> movie && removeFavorite(movieID)}>Quitar de favoritos</button>
+                        :
+                        <button className="md-btns-agregar-fav" onClick={()=> movie && addFavorite(movie)}>Agregar como favorito</button>
+                    }
+                </div>
+                
             </div>
             
             
