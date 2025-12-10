@@ -25,26 +25,28 @@
     display: flex;
     gap: 2rem;
 }
+.md-btns-volver,
+.md-btns-agregar-fav,
+.md-btns-quitar-fav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 10rem;
+}
 .md-btns-volver {
     text-decoration: none;
     background-color: #2cf;
     color: blue;
-    padding: 1rem 3rem;
-    border-radius: 10rem;
-    font-size: 16px;
-    cursor: pointer;
-    outline: none;
-    border: none;
+    width: 10rem;
 }
 .md-btns-quitar-fav, .md-btns-agregar-fav {
     font-family: inherit;
-    border: none;
-    cursor: pointer;
     width: 15rem;
-    border-radius: 10rem;
-    font-size: 16px;
-    outline: none;
-    border: none;
 }
 .md-btns-agregar-fav {
     color: black;
@@ -60,4 +62,18 @@
 .md-btns-quitar-fav:hover {
     outline: 2px solid white;
     outline-offset: 2px;
+}
+
+@media (max-width: 898px) {
+    .md-buttons-container {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .md-btns-volver, 
+    .md-btns-agregar-fav, 
+    .md-btns-quitar-fav {
+        width: 100%;
+    }
 }

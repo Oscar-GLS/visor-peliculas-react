@@ -18,3 +18,15 @@
     color: #fff;
     text-align: center;
 }
+.movie-poster {
+    border-radius: 1rem;
+}
+
+.movie:hover {
+    .movie-poster {
+        box-shadow: 0 0 10px 3px #c00;
+    }
+    .movie-title {
+        color: #f21;
+    }
+}

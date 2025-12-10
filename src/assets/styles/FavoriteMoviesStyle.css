@@ -1,0 +1,74 @@
+.favorite-movies-interface {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 4rem;
+    gap: 1rem;
+}
+.favmovint-title {
+    color: white;
+    font-size: 24px;
+}
+.favorite-movies-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.favorite-movie {
+    display: grid;
+    grid-template-columns: max-content auto auto 1fr;
+    grid-template-rows: .2fr .2fr 2fr auto;
+    grid-template-areas: 
+    "poster puntuacion title title"
+    "poster puntuacion fechalanz fechalanz"
+    "poster reseña reseña reseña"
+    "poster btn-fav btn-fav btn-detalles"
+    ;
+    color: white;
+    column-gap: 1rem;
+    border: 1px solid white;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.favmov-poster {
+    grid-area: poster;
+}
+.favmov-puntuacion,
+.favmov-title,
+.favmov-fechalanz {
+    display: flex;
+    align-items: center;
+}
+.favmov-puntuacion {
+    grid-area: puntuacion;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+}
+.favmov-title {
+    grid-area: title;
+    display: grid;
+}
+.favmov-fechalanz {
+    grid-area: fechalanz;
+    display: grid;
+}
+.favmov-reseña {
+    grid-area: reseña;
+}
+.favmov-btn-quitarfav {
+    grid-area: btn-fav;
+    width: 10rem;
+    max-width: 10rem;
+}
+.favmov-btn-detalles {
+    grid-area: btn-detalles;
+    text-decoration: none;
+    color: inherit;
+    background-color: grey;
+    width: 10rem;
+    max-width: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

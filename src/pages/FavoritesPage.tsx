@@ -1,21 +1,17 @@
-import { Link } from "react-router-dom";
+import { FavoriteMovie } from "../components";
 import { useFavoritesContext } from "../context/FavoritesContext"
 
 export const FavoritesPage = () => {
-    const {favorites} = useFavoritesContext();
+    const {favorites,removeFavorite,isFavorite} = useFavoritesContext();
 
     return (
-        <ul>
-            {
-                favorites.length !== 0 && favorites.map((fav)=>(
-                    <li key={fav.id}>
-                        <span>{fav.id}</span>
-                        <span>{fav.title}</span>
-                        <span>{fav.vote_average}</span>
-                        <Link to={`/pelicula/${fav.id}`}>Ver detalles</Link>
-                    </li>
-                ))
-            }
-        </ul>
+        <div className="favorite-movies-interface">
+            <span className="favmovint-title">Peliculas Favoritas</span>
+            <FavoriteMovie 
+            favorites={favorites}
+            removeFavorite={removeFavorite}
+            isFavorite={isFavorite}
+            />
+        </div>
     )
 }
