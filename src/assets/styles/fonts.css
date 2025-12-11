@@ -1,6 +1,7 @@
 @font-face {
-    font-family: 'Roboto';
-    src: url('../fonts/Oswald-VariableFont_wght.ttf') format('truetype'); /* */
-    font-weight: normal;
+    font-family: 'Source Sans 3';
+    src: url('../fonts/SourceSans3-VariableFont_wght.ttf') format('truetype');
+    font-weight: 200 700;  /* rango completo */
     font-style: normal;
 }
+
