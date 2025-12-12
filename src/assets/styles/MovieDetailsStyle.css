@@ -3,7 +3,6 @@
     justify-content: center;
     padding: 4rem 4rem;
     flex: 1;
-    gap: 2rem;
 }
 .md-image-container, .md-informacion-container {
     display: flex;
@@ -16,9 +15,88 @@
     }
 }
 .md-informacion-container {
+    position: relative;
     flex: 1;
     flex-direction: column;
     color: #fff;
+    padding: 2rem;
+    justify-content: space-between;
+    &::before {
+        content: "";
+        position: absolute;
+        background: var(--bg-img);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        inset: 0;
+        filter: brightness(0.2);
+        pointer-events: none;
+        z-index: 0;
+    }
+}
+.md-informacion-container > * {
+    position: relative;
+    z-index: 1;
+}
+/* Header */
+.md-info-header {
+    display: flex;
+    justify-content: space-between;
+}
+.md-info-title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.md-info-title-top {
+    display: flex;
+    gap: .5rem;
+    font-size: 30px;
+}
+.md-info-title {
+    font-weight: 700;
+}
+.md-info-title-top > .md-info-releasedate{
+    color: #ccc;
+}
+.md-info-title-bottom {
+    display: flex;
+    gap: 1rem
+}
+.md-info-vote-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222;
+    min-width: 4rem;
+    min-height: 100%;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* BODY */
+.md-info-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.md-info-tagline {
+    color: #bbb;
+    font-style: italic;
+}
+.md-info-tagline + div {
+    font-size: 20px;
+    font-weight: 700;
+}
+.md-info-overview {
+    text-align: justify;
+}
+
+/* FOOTER */
+.md-info-footer {
+    display: flex;
 }
 .md-buttons-container {
     margin-top: auto;
@@ -40,8 +118,8 @@
 }
 .md-btns-volver {
     text-decoration: none;
-    background-color: #2cf;
-    color: blue;
+    background-color: #666;
+    color: #fff;
     width: 10rem;
 }
 .md-btns-quitar-fav, .md-btns-agregar-fav {
@@ -60,7 +138,7 @@
 .md-btns-volver:hover, 
 .md-btns-agregar-fav:hover, 
 .md-btns-quitar-fav:hover {
-    outline: 2px solid white;
+    outline: 2px solid #fff;
     outline-offset: 2px;
 }
 

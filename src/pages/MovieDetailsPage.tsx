@@ -1,6 +1,7 @@
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useMovieDetailsByID } from "../hooks/useMovieApi";
 import { useFavoritesContext } from "../context/FavoritesContext";
+import { MovieDetailsCard } from "../components";
 
 export const MovieDetailPage = () => {
     let {id} = useParams();
@@ -18,28 +19,18 @@ export const MovieDetailPage = () => {
     }
 
     return (
-        <div className="movie-details-container">
-            <div className="md-image-container">
-                <img className="md-image" src={import.meta.env.VITE_BASE_URL_IMAGEN_POSTER_TMDB+movie?.poster_path} alt="" />
-            </div>
-            <div className="md-informacion-container">
-                <span>ID: {movie?.id}</span>
-                <span>Titulo: {movie?.title}</span>
-                <span>Reseña: {movie?.overview}</span>
-                <span>Valoraciones: {movie?.vote_average}</span>
-                <div className="md-buttons-container">
-                    <Link className="md-btns-volver" to="/">Volver</Link>
-                    {
-                        isFavorite(movieID) ?
-                        <button className="md-btns-quitar-fav" onClick={()=> movie && removeFavorite(movieID)}>Quitar de favoritos</button>
-                        :
-                        <button className="md-btns-agregar-fav" onClick={()=> movie && addFavorite(movie)}>Agregar como favorito</button>
-                    }
-                </div>
-                
-            </div>
-            
-            
+        
+        <div className="movie-details-interface">
+            {
+                movie !== null ? 
+                <MovieDetailsCard
+                    movie={movie}
+                    addFavorite={addFavorite}
+                    removeFavorite={removeFavorite}
+                    isFavorite={isFavorite}
+                /> :
+                <div>Hubo un error</div>
+            }
         </div>
     )
 }

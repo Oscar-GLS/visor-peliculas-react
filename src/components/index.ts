@@ -1,3 +1,4 @@
 export * from './Card/CardMovie'
 export * from './ui/FiltroMovies'
-export * from './ui/FavoriteMovieList'
+export * from './ui/FavoriteMovies/FavoriteMovieList'
+export * from './ui/MovieDetails/MovieDetailsCard'

@@ -1,4 +1,4 @@
-import type { MovieDetails } from "../../interfaces"
+import type { MovieDetails } from "../../../interfaces"
 import { FavoriteMovieCard } from "./FavoriteMovieCard"
 
 interface Props {

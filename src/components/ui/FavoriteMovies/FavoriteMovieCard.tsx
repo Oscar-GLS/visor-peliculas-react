@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import type { MovieDetails } from "../../interfaces"
+import type { MovieDetails } from "../../../interfaces"
 
 interface Props {
     movie: MovieDetails,
@@ -9,7 +9,7 @@ interface Props {
 export const FavoriteMovieCard = ({movie,removeFavorite}:Props) =>{
     return (
         <div className="favorite-movie" key={movie.id}>
-            <img className="favmov-poster" src={import.meta.env.VITE_BASE_URL_IMAGEN_POSTER_TMDB+movie.poster_path} alt="Poster de la pelicula" />
+            <img className="favmov-poster" src={import.meta.env.VITE_BASE_URL_IMAGEN_POSTER_TMDB+"w154/"+movie.poster_path} alt="Poster de la pelicula" />
             <div className="favmov-info-container">
                 <div className="favmov-info-header">
                     <div className="favmov-info-puntuacion-container">
