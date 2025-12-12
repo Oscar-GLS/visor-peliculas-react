@@ -19,6 +19,7 @@
 .favorite-movie {
     display: flex;
     color: white;
+    background-color: #02020260;
     box-shadow: 0px 0px 10px 0px #ffffff30;
     border-radius: 1rem;
     overflow: hidden;
@@ -97,7 +98,7 @@
 }
 .favmov-btn-quitarfav:hover,
 .favmov-btn-detalles:hover {
-    outline: 1px solid #b11;
+    outline: 1px solid #fff;
     outline-offset: 2px;
 }
 

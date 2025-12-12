@@ -14,12 +14,7 @@ export const MovieDetailsCard = ({movie,addFavorite,removeFavorite,isFavorite}:P
             <div className="md-image-container">
                 <img className="md-image" src={import.meta.env.VITE_BASE_URL_IMAGEN_POSTER_TMDB+"w342"+movie?.poster_path} alt="" />
             </div>
-            <div 
-                className="md-informacion-container"
-                style={{
-                    ["--bg-img" as any]: `url(${import.meta.env.VITE_BASE_URL_IMAGEN_POSTER_TMDB + "original" + movie.backdrop_path})`
-                }}
-            >
+            <div className="md-informacion-container">
                 <div className="md-info-header">
                     <div className="md-info-title-container">
                         <div className="md-info-title-top">

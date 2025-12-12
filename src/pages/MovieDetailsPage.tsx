@@ -20,7 +20,11 @@ export const MovieDetailPage = () => {
 
     return (
         
-        <div className="movie-details-interface">
+        <div className="movie-details-interface"
+            style={{
+                    ["--bg-img" as any]: `url(${import.meta.env.VITE_BASE_URL_IMAGEN_POSTER_TMDB + "original" + movie?.backdrop_path})`
+                }}
+        >
             {
                 movie !== null ? 
                 <MovieDetailsCard
