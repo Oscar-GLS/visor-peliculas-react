@@ -1,3 +1,4 @@
+import { Loader } from "../components";
 import { CardMovie } from "../components/Card/CardMovie";
 import { useMoviesByTitle, usePopularMovies } from "../hooks/useMovieApi";
 
@@ -10,7 +11,9 @@ export const HomePage = ({filtro}:Props) => {
     const {data: moviesByTitle} = useMoviesByTitle(filtro);
 
     if(loading) {
-    return <h3>Cargando datos...</h3>
+        return (
+            <Loader/>
+        )
     }
 
     if(error) {

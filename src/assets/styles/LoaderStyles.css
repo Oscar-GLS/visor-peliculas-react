@@ -1,0 +1,21 @@
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+.loader {
+    width: 6rem;
+    height: 6rem;
+    animation: rotacion 2s linear infinite;
+}
+
+@keyframes rotacion {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
+    }
+}

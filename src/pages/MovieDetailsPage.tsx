@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useMovieDetailsByID } from "../hooks/useMovieApi";
 import { useFavoritesContext } from "../context/FavoritesContext";
-import { MovieDetailsCard } from "../components";
+import { Loader, MovieDetailsCard } from "../components";
 
 export const MovieDetailPage = () => {
     let {id} = useParams();
@@ -11,7 +11,9 @@ export const MovieDetailPage = () => {
     const {addFavorite, removeFavorite, isFavorite} = useFavoritesContext();
 
     if(loading) {
-        return <h3>Cargando datos...</h3>
+        return (
+            <Loader/>
+        )
     }
 
     if(error) {
