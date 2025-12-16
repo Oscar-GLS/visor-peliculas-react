@@ -4,7 +4,7 @@ Aplicación web para explorar películas utilizando la API de TMDB.
 Permite buscar películas, ver detalles y gestionar una lista de favoritos con persistencia local.
 
 ## 🚀 Demo
-👉 https://TU-PROYECTO.vercel.app
+👉 https://visor-peliculas-react.vercel.app/
 
 ## 🧩 Funcionalidades
 - Listado de películas populares
